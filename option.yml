@@ -1,0 +1,38 @@
+client:
+  impl: api
+  domain:
+    api:
+      - www.cdnmhwscc.vip
+      - www.cdnblackmyth.club
+      - www.cdnmhws.cc
+      - www.cdnuc.vip
+  postman:
+    meta_data:
+      headers: null
+      impersonate: chrome110
+      proxies: system
+    type: cffi
+  retry_times: 5
+dir_rule:
+  base_dir: C:\Users\Toona\Downloads
+  rule: Bd_Pname
+download:
+  cache: true
+  image:
+    decode: true
+    suffix: .jpg
+  threading:
+    image: 30
+    photo: 28
+log: true
+plugins:
+  after_photo:
+    # 把章节的所有图片合并为一个pdf的插件
+    # 使用前需要安装依赖库: [pip install img2pdf]
+    - plugin: img2pdf
+      kwargs:
+        pdf_dir: C:\Users\Toona\Downloads # pdf存放文件夹
+        filename_rule: Pid # pdf命名规则，P代表photo, id代表使用photo.id也就是章节id
+
+  valid: log
+version: '2.1'
